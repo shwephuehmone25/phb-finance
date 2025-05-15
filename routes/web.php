@@ -10,7 +10,11 @@ Route::get('/', function () {
 });
 
 Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard.dashboard');
+    return view('admin.partials.dashboard');
+});
+
+Route::get('/admin/login', function () {
+    return view('admin.auth.signIn');
 });
 
 //Auth::routes();
