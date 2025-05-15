@@ -25,7 +25,7 @@ class CurrencyRateController extends Controller
     public function store(StoreRateRequest $request)
     {
         CurrencyRate::create($request->validated());
-        return redirect()->route('rate.index')->with('success', 'Currency rate created successfully.');
+        return redirect()->route('currency-rates.index')->with('success', 'Currency rate created successfully.');
     }
 
     // Show edit form
