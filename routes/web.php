@@ -2,16 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Admin\CurrencyRateController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\BankAccountController;
+use App\Models\Transaction;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.partials.dashboard');
-});
+// Route::get('/admin/dashboard', function () {
+//     return view('admin.partials.dashboard')->name('dashboard');
+// });
+
+Route::get('/admin/dashboard', [TransactionController::class, 'index'])->name('dashboard');
 
 Route::get('/admin/login', function () {
     return view('admin.auth.signIn');
@@ -32,8 +38,56 @@ Route::prefix('user')->controller(AuthController::class)->group(function () {
     Route::post('/register', 'register')->name('register');
 
     // Login
-    Route::get('/login', 'showLoginForm')->name('login.form');
-    Route::post('/login', 'login')->name('login');
+    // Route::get('/login', 'showLoginForm')->name('login.form');
+    // Route::post('/login', 'login')->name('login');
 });
 
-Route::resource('currency-rates', CurrencyRateController::class);
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
+// Handle login request
+Route::post('/login', [LoginController::class, 'login']);
+
+// Handle logout request
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('admin/logout', [AuthController::class, 'logoutAsAdmin'])->name('admin.logout');
+
+
+Route::middleware(['auth'])->group(function () {
+Route::get('/transactions/get', [DashboardController::class, 'getAllTransactions'])->name('get.transactions');
+
+Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
+
+// Store new transaction
+Route::post('/transactions/create', [TransactionController::class, 'store'])->name('transactions.store');
+
+Route::post('/logout', [DashboardController::class, 'logout'])->name('logout');
+
+});
+
+/*Admin Routes*/
+Route::get('admin/login', [AuthController::class, 'showAdminLoginForm'])->name('admin.login');
+Route::post('admin/login', [AuthController::class, 'LoginAsAdmin']);
+
+Route::get('banks', [BankAccountController::class, 'index'])->name('banks.index');
+Route::get('banks/create', [BankAccountController::class, 'create'])->name('banks.create');
+Route::post('banks', [BankAccountController::class, 'store'])->name('banks.store');
+Route::get('banks/{bankAccount}/edit', [BankAccountController::class, 'edit'])->name('banks.edit');
+Route::put('banks/{bankAccount}', [BankAccountController::class, 'update'])->name('banks.update');
+Route::delete('banks/{bankAccount}', [BankAccountController::class, 'destroy'])->name('banks.destroy');
+Route::get('banks/{bankAccount}', [BankAccountController::class, 'show'])->name('banks.show');
+
+//Route::resource('currency-rates', CurrencyRateController::class);
+Route::get('currency-rates', [CurrencyRateController::class, 'index'])->name('currency-rates.index');
+Route::get('currency-rates/create', [CurrencyRateController::class, 'create'])->name('currency-rates.create');
+Route::post('currency-rates', [CurrencyRateController::class, 'store'])->name('currency-rates.store');
+Route::get('currency-rates/{currencyRate}/edit', [CurrencyRateController::class, 'edit'])->name('currency-rates.edit');
+Route::put('currency-rates/{currencyRate}', [CurrencyRateController::class, 'update'])->name('currency-rates.update');
+Route::delete('currency-rates/{currencyRate}', [CurrencyRateController::class, 'destroy'])->name('currency-rates.destroy');
+Route::get('currency-rates/{currencyRate}', [CurrencyRateController::class, 'show'])->name('currency-rates.show');
+
+/**transaction */
+//Route::resource('transaction', TransactionController::class);
+Route::get('transactions', [TransactionController::class, 'index'])->name('transactions.index');
+Route::get('transactions/{transaction}/edit', [TransactionController::class, 'edit'])->name('transactions.edit');
+Route::put('transactions/{transaction}', [TransactionController::class, 'update'])->name('transactions.update');
+Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
