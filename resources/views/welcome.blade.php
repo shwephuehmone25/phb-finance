@@ -14,6 +14,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" type="image/png" href="{{ asset('img/coin.png') }}">
     <!-- bootstrap css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
     <!-- style css -->
@@ -59,10 +60,10 @@
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Login</a>
+                            <a class="nav-link" href="{{route('login')}}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Register</a>
+                            <a class="nav-link" href="{{route('register.form')}}">Register</a>
                         </li>
                     </ul>
                 </div>
@@ -112,32 +113,32 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="box_main">
                             <div class="icon_1"><img src="{{ asset('img/icon-1.png') }}"></div>
-                            <h3 class="accounting_text">Accounting</h3>
-                            <p class="lorem_text">Lorem Ipsum is simply dummy text of the printing and</p>
+                            <h3 class="accounting_text">Great Exchange Rates</h3>
+                            <p class="lorem_text">Get more for your money with our excellent rates.</p>
                             <div class="moremore_bt_1"><a href="#">Read More </a></div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="box_main active">
                             <div class="icon_1"><img src="{{ asset('img/icon-2.png') }}"></div>
-                            <h3 class="accounting_text">Advisor</h3>
-                            <p class="lorem_text">Lorem Ipsum is simply dummy text of the printing and</p>
+                            <h3 class="accounting_text">Anytime, Anywhere</h3>
+                            <p class="lorem_text">Fast, reliable transfers over the phone or online 24/7.</p>
                             <div class="moremore_bt_1"><a href="#">Read More </a></div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="box_main">
                             <div class="icon_1"><img src="{{ asset('img/icon-3.png') }}"></div>
-                            <h3 class="accounting_text">Investment</h3>
-                            <p class="lorem_text">Lorem Ipsum is simply dummy text of the printing and</p>
+                            <h3 class="accounting_text">Multi Award-Winning</h3>
+                            <p class="lorem_text">Moneyfacts Consumer award-winner 2016 - 2025</p>
                             <div class="moremore_bt_1"><a href="#">Read More </a></div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="box_main">
                             <div class="icon_1"><img src="{{ asset('img/icon-4.png') }}"></div>
-                            <h3 class="accounting_text">Financial</h3>
-                            <p class="lorem_text">Lorem Ipsum is simply dummy text of the printing and</p>
+                            <h3 class="accounting_text">No Transfer Fees</h3>
+                            <p class="lorem_text">Move your money quickly and securely.</p>
                             <div class="moremore_bt_1"><a href="#">Read More </a></div>
                         </div>
                     </div>
