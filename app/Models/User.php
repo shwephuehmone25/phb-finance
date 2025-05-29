@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -19,8 +18,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'nrc',
+        'country',
+        'city',
+        'phone_number',
         'password',
+        'is_verified',
+        'verified_at',
+        'role',
     ];
 
     /**
@@ -42,7 +47,12 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password'          => 'hashed',
         ];
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
     }
 }
