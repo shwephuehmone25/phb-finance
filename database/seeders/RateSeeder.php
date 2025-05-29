@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
-class CurrencyRateSeeder extends Seeder
+class RateSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -35,7 +35,15 @@ class CurrencyRateSeeder extends Seeder
             [
                 'from_currency' => 'THB',
                 'to_currency' => 'MMK',
-                'rate' => 60.750000,
+                'rate' => 64.329124,
+                'effective_date' => '2025-05-15',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'from_currency' => 'MMK',
+                'to_currency' => 'THB',
+                'rate' => 0.015545059,
                 'effective_date' => '2025-05-15',
                 'created_at' => $now,
                 'updated_at' => $now,
