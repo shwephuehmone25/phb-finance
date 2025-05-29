@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+
     <link rel="icon" type="image/png" href="{{ asset('img/coin.png') }}">
     <title>
         PHB Finance Admin Dashboard
@@ -15,6 +15,7 @@
     <link href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('css/soft-ui-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
@@ -38,7 +39,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link  " href="../pages/dashboard.html">
+                    <a class="nav-link  " href="{{ route('dashboard') }}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
@@ -65,7 +66,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  active" href="../pages/tables.html">
+                    <a class="nav-link  active" href="{{ route('currency-rates.index') }}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
@@ -88,11 +89,11 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="nav-link-text ms-1">Tables</span>
+                        <span class="nav-link-text ms-1">Currency Rates</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  " href="../pages/billing.html">
+                    <a class="nav-link  " href="{{ route('transactions.index') }}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
@@ -115,39 +116,10 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="nav-link-text ms-1">Billing</span>
+                        <span class="nav-link-text ms-1">Transactions</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link  " href="../pages/virtual-reality.html">
-                        <div
-                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <title>box-3d-50</title>
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g transform="translate(-2319.000000, -291.000000)" fill="#FFFFFF"
-                                        fill-rule="nonzero">
-                                        <g transform="translate(1716.000000, 291.000000)">
-                                            <g transform="translate(603.000000, 0.000000)">
-                                                <path class="color-background"
-                                                    d="M22.7597136,19.3090182 L38.8987031,11.2395234 C39.3926816,10.9925342 39.592906,10.3918611 39.3459167,9.89788265 C39.249157,9.70436312 39.0922432,9.5474453 38.8987261,9.45068056 L20.2741875,0.1378125 L20.2741875,0.1378125 C19.905375,-0.04725 19.469625,-0.04725 19.0995,0.1378125 L3.1011696,8.13815822 C2.60720568,8.38517662 2.40701679,8.98586148 2.6540352,9.4798254 C2.75080129,9.67332903 2.90771305,9.83023153 3.10122239,9.9269862 L21.8652864,19.3090182 C22.1468139,19.4497819 22.4781861,19.4497819 22.7597136,19.3090182 Z">
-                                                </path>
-                                                <path class="color-background opacity-6"
-                                                    d="M23.625,22.429159 L23.625,39.8805372 C23.625,40.4328219 24.0727153,40.8805372 24.625,40.8805372 C24.7802551,40.8805372 24.9333778,40.8443874 25.0722402,40.7749511 L41.2741875,32.673375 L41.2741875,32.673375 C41.719125,32.4515625 42,31.9974375 42,31.5 L42,14.241659 C42,13.6893742 41.5522847,13.241659 41,13.241659 C40.8447549,13.241659 40.6916418,13.2778041 40.5527864,13.3472318 L24.1777864,21.5347318 C23.8390024,21.7041238 23.625,22.0503869 23.625,22.429159 Z">
-                                                </path>
-                                                <path class="color-background opacity-6"
-                                                    d="M20.4472136,21.5347318 L1.4472136,12.0347318 C0.953235098,11.7877425 0.352562058,11.9879669 0.105572809,12.4819454 C0.0361450918,12.6208008 6.47121774e-16,12.7739139 0,12.929159 L0,30.1875 L0,30.1875 C0,30.6849375 0.280875,31.1390625 0.7258125,31.3621875 L19.5528096,40.7750766 C20.0467945,41.0220531 20.6474623,40.8218132 20.8944388,40.3278283 C20.963859,40.1889789 21,40.0358742 21,39.8806379 L21,22.429159 C21,22.0503869 20.7859976,21.7041238 20.4472136,21.5347318 Z">
-                                                </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </g>
-                            </svg>
-                        </div>
-                        <span class="nav-link-text ms-1">Virtual Reality</span>
-                    </a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link  " href="../pages/rtl.html">
                         <div
@@ -175,7 +147,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="nav-link-text ms-1">RTL</span>
+                        <span class="nav-link-text ms-1">Customers</span>
                     </a>
                 </li>
                 <li class="nav-item mt-3">
@@ -211,6 +183,16 @@
                         <span class="nav-link-text ms-1">Profile</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="POST" class="nav-item m-0 p-0">
+                        @csrf
+                        <button type="submit" class="nav-link btn btn-link" style="text-decoration: none;">
+                            <i
+                                class="fa-solid fa-right-from-bracket icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"></i>
+                            <span class="nav-link-text ms-1">Logout</span>
+                        </button>
+                    </form>
+                </li>
             </ul>
         </div>
     </aside>
@@ -223,9 +205,9 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark"
                                 href="javascript:;">Pages</a></li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Tables</li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">transactions</li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">Tables</h6>
+                    <h6 class="font-weight-bolder mb-0">transaction lists</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -351,64 +333,12 @@
         </nav>
         <!-- End Navbar -->
         <div class="container-fluid py-4">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                style="background-color:#0056b3">
-                Create
-                <a href="{{ route('currency-rates.create') }}"></a>
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <form action="{{ route('currency-rates.store') }}" method="POST">
-                        @csrf
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Create Currency Rate</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="from_currency" class="form-label">From Currency (3-letter
-                                        code)</label>
-                                    <input type="text" class="form-control text-uppercase" id="from_currency"
-                                        name="from_currency" placeholder="e.g. USD" maxlength="3" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="to_currency" class="form-label">To Currency (3-letter code)</label>
-                                    <input type="text" class="form-control text-uppercase" id="to_currency"
-                                        name="to_currency" placeholder="e.g. MMK" maxlength="3" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="rate" class="form-label">Rate</label>
-                                    <input type="number" step="0.000001" class="form-control" id="rate"
-                                        name="rate" placeholder="e.g. 2100.500000" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="effective_date" class="form-label">Effective Date</label>
-                                    <input type="date" class="form-control" id="effective_date"
-                                        name="effective_date">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn text-white"
-                                    style="background-color:#0056b3">Save</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <h6>Currency Rate table</h6>
+                            <h6>Transactions</h6>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
@@ -420,62 +350,118 @@
                                                 #</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                From</th>
+                                                User ID</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                User Name</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                To</th>
+                                                Amount</th>
                                             <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Rate</th>
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                From Amount</th>
                                             <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Effective Date</th>
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                To Amount</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Exchange Rate</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Transfer Bill</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">
+                                                Payment Method</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Receiver Bank Account</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Direction</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Status</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Note</th>
                                             <th class="text-secondary opacity-7">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse($currencyRates as $rate)
+                                        @forelse($transactions as $t)
                                             <tr>
                                                 <td class="align-middle text-center text-sm">
                                                     <span
                                                         class="text-secondary text-xs font-weight-bold">{{ $loop->iteration }}</span>
                                                 </td>
                                                 <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div>
-                                                            <img src="{{ asset('img/baht.jpeg') }}"
-                                                                class="avatar avatar-sm me-3" alt="currency">
-                                                        </div>
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">{{ $rate->from_currency }}</h6>
-                                                            <p class="text-xs text-secondary mb-0">Currency</p>
-                                                        </div>
-                                                    </div>
+                                                    <p class="text-xs font-weight-bold mb-0">{{ $t->user_id ?? '-' }}
+                                                    </p>
                                                 </td>
                                                 <td>
-                                                    <p class="text-xs font-weight-bold mb-0">{{ $rate->to_currency }}
-                                                    </p>
-                                                    <p class="text-xs text-secondary mb-0">Currency</p>
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        {{ optional($t->user)->name ?? 'N/A' }}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        {{ number_format($t->amount, 2) }}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        {{ number_format($t->from_amount, 2) }}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        {{ number_format($t->to_amount, 2) }}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        {{ number_format($t->exchange_rate, 4) }}</p>
                                                 </td>
                                                 <td class="align-middle text-center text-sm">
-                                                    <span
-                                                        class="badge badge-sm bg-gradient-success">{{ number_format($rate->rate, 6) }}</span>
+                                                    @if ($t->transfer_bill)
+                                                        <img src="{{ asset('storage/' . $t->transfer_bill) }}"
+                                                            alt="Transfer Bill" style="max-height: 50px;">
+                                                    @else
+                                                        <span class="text-muted">No Image</span>
+                                                    @endif
                                                 </td>
                                                 <td class="align-middle text-center">
                                                     <span
-                                                        class="text-secondary text-xs font-weight-bold">{{ $rate->effective_date ?? '-' }}</span>
+                                                        class="text-secondary text-xs font-weight-bold">{{ $t->payment_method }}</span>
                                                 </td>
-                                                <td class="align-middle">
-                                                    <a href="javascript:;"
-                                                        class="text-secondary font-weight-bold text-xs"
-                                                        data-toggle="tooltip" data-original-title="Edit rate">
-                                                        Edit
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        {{ $t->receiver_bank_account_no }}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0">{{ $t->direction }}</p>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="badge
+                        @if ($t->status === 'Completed') bg-success
+                        @elseif($t->status === 'Pending') bg-warning
+                        @elseif($t->status === 'Failed') bg-danger @endif
+                        text-white text-xs font-weight-bold">
+                                                        {{ $t->status }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs text-secondary mb-0">{{ $t->note ?? '-' }}</p>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('transactions.edit', $t->id) }}"
+                                                        class="btn btn-sm btn-primary">
+                                                        <i
+                                                            class="fa-solid fa-pen-to-square text-dark text-gradient text-lg opacity-10"></i>
+                                                        <span class="ms-1">Edit</span>
                                                     </a>
-                                                </td>
                                             </tr>
+                                            </td>
                                         @empty
                                             <tr>
-                                                <td colspan="5" class="text-center text-muted">No currency rates
+                                                <td colspan="14" class="text-center text-muted">No transaction
                                                     found.</td>
                                             </tr>
                                         @endforelse
@@ -487,6 +473,9 @@
                     </div>
                 </div>
             </div>
+
+            {!! $transactions->withQueryString()->links('pagination::bootstrap-5') !!}
+
             <footer class="footer pt-3  ">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
@@ -527,26 +516,7 @@
             </footer>
         </div>
     </main>
-    <div class="fixed-plugin">
-        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-            <i class="fa fa-cog py-2"> </i>
-        </a>
-        <div class="card shadow-lg ">
-            <div class="card-header pb-0 pt-3 ">
-                <div class="float-start">
-                    <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
-                    <p>See our dashboard options.</p>
-                </div>
-                <div class="float-end mt-4">
-                    <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-                        <i class="fa fa-close"></i>
-                    </button>
-                </div>
-                <!-- End Toggle Button -->
-            </div>
-            <hr class="horizontal dark my-1">
-        </div>
-    </div>
+
     <!--   Core JS Files   -->
     <script src="{{ asset('js/core/popper.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
