@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -22,4 +21,9 @@ class Admin extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function hasRole(string $role): bool
+    {
+        return $this->role === $role;
+    }
 }
